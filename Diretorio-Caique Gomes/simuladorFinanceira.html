@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+<body>
+    <h1>Calculadora Financeira</h1>
+    <p>Faça agora a simulação e veja o quanto sua Produção pode <b>Aumentar</b> com a solução IoT.</p>
+    Informe sua Produção <b>(Kgs)</b>: <input id="ipt_prod"><br>
+    Informe sua área Plantada: <b>(Hectares)</b>: <input id="ipt_area"><br><br>
+    <button onclick="simular()">Simular</button><br><br>
+    <div id="div_result"></div>
+</body>
+<script>
+function simular(){
+    var prodArea = Number(ipt_prod.value)/Number(ipt_area.value);
+    div_result.innerHTML = 'Sua Produção atual é de: <b>'+prodArea.toFixed(1)+' Kg/ha</b><br>'+
+    'Após a implementação da solução IoT e realizando os manejos corretos, sua produção será de: <br><b><u>'+(prodArea*1.05).toFixed(1)+' Kg/ha até '+(prodArea*1.2).toFixed(1)+' Kg/ha</u></b>';
+}
+</script>
+</html>
