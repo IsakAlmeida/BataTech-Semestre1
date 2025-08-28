@@ -4,23 +4,33 @@
 CREATE DATABASE batatech;
 USE batatech;
 
+
 -- CRIAÇÃO DA TABELA platacao
 CREATE TABLE plantacao(
 idLeitura INT PRIMARY KEY AUTO_INCREMENT,
-dataLeitura DATETIME,
-sensorUmidade INT,
-sensorTemperatura INT
+dataLeitura DATETIME DEFAULT current_timestamp,
+idArduino INT,
+sensorUmidade DECIMAL(5,2),
+sensorTemperatura DECIMAL(4,2)
 );
 
 -- CRIAÇÃO DA TABELA usuario
 CREATE TABLE usuario(
 id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(60),
-email VARCHAR(80) NOT NULL,
-CONSTRAINT chkEmail CHECK(email LIKE '%@batatech.com'),
+email VARCHAR(80) NOT NULL UNIQUE,
+CONSTRAINT chkEmail CHECK(email LIKE '%@%.%'),
 senha VARCHAR(50),
 permissao VARCHAR(30),
 CONSTRAINT chkPermissao CHECK(permissao IN ('admin','analista'))
+);
+
+-- CRIAÇÃO DA TABELA producao
+CREATE TABLE producao(
+id INT PRIMARY KEY AUTO_INCREMENT,
+dataProducao DATE,
+haPlantados INT, 
+quilosColhidos int 
 );
 
 -- INSERÇÃO DADOS TABELA plantacao
@@ -57,3 +67,13 @@ INSERT INTO usuario(nome, email, senha, permissao) VALUES
 ('Mario Batateiro','mario.batateiro@batatech.com','batata123','analista');
 
 SELECT * FROM usuario;
+
+
+-- INSERÇÃO DADOS NA TABELA producao
+INSERT INTO producao(dataProducao, haPlantados, quilosColhidos)  VALUES
+('2025-06-01', 2,25000 ),
+('2025-08-10', 1,15000 ),
+('2024-01-01', 2,15000 );
+
+SELECT * FROM producao;
+
