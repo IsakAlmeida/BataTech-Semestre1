@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro - BataTech</title>
+</head>
+<body>
+    <!-- 
+    A produtividade recebe um acréscimo de 20% do esperado ao utilizar a tecnologia para controlar o solo das plantações
+     url: https://www.idrparana.pr.gov.br/Noticia/Combate-compactacao-do-solo-aumenta-produtividade-da-agropecuaria 
+     
+     O custo de produção de batata no Brasil varia em média de R$ 15 mil a R$ 20 mil por hectare
+     url: https://www.abbabatatabrasileira.com.br/materias-das-revistas/editorial-custo-de-producao-de-batata-no-brasil/#:~:text=A%20produtividade%20nas%20principais%20regi%C3%B5es,a%20R$%2040%20por%20saca.
+     -->
+
+    <h2 style="color: forestgreen;">Simulador Financeiro</h2>
+    <p>Realize a simulação para contratar nossos serivços!
+    <br><br><br>
+        Responda as perguntas abaixo com valores mais aproximados possíveis. <br>
+        Calcularemos o quanto nossas ferramentas e serviço impactará de maneira <b style="color: green;">positiva</b> o seu <b style="color: brown;">plantio de batata</b>.
+    </p>
+    <br>
+
+    Digite a quantidade de hectares da sua plantação: <br><br>
+    <input id="ipt_qtdHectar"><br>
+    <br><br>
+    Digite a quantidade de quilos de batatas produzidas anualmente:<br><br>
+    <input id="ipt_qtdBatatas"><br>
+    <br><br>
+    Digite o valor vendido por saca (50kg): <br><br>
+    <input id="ipt_valorSaca"><br>
+    <br><br> 
+
+    <button onclick="calculo()">Vamos Realizar o Cálculo!</button>
+    <br><br><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+<script>
+    function calculo(){
+        var qtdHectar = Number(ipt_qtdHectar.value);
+        var qtdBatatas = Number(ipt_qtdBatatas.value);
+        var valorSaca = Number(ipt_valorSaca.value);
+
+        var produtividadeSemTech = qtdBatatas / qtdHectar;
+        var lucrosSemTech = (produtividadeSemTech / 50) * valorSaca;
+        var investimentoSemTech = qtdHectar * 17500;
+
+        var produtividadeComTech = produtividadeSemTech + (produtividadeSemTech * 0.20);
+        var lucrosComTech = (produtividadeComTech / 50) * valorSaca;
+        var investimentoComTech = qtdHectar * 17500;
+
+        div_msg.innerHTML = `O seu relatório está pronto!! <br><br>
+                             Sem os nossos serviços: <br>
+                             Produtividade por Hectar: <b style="color: red">${produtividadeSemTech.toFixed(1)}</b> <br>
+                             Lucros: <b style="color: red">R$${lucrosSemTech.toFixed(2)}</b> <br>
+                             Investimento aproximado: <b>R$${investimentoSemTech.toFixed(2)}</b>
+                             <br><br><br>
+                             
+                             <b>Com os nossos serviços: </b> <br>
+                             Produtividade por Hectar: <b style="color: green">${produtividadeComTech.toFixed(1)}</b> <b>Aumento 20%</b> <br>
+                             Lucros: R$<b style="color: green">${lucrosComTech.toFixed(2)}</b> <br>
+                             Investimento aproximado: <b style="color: green"><i>R$${investimentoComTech.toFixed(2)}</i></b>  <br><br>
+                             Com os nossos serviços o seu investimento se mantém o mesmo! <br>
+                             O que aumenta é a <b style="color: green">PRODUTIVIDADE</b> e os <b style="color: green">LUCROS<b>. <br><br>`;
+
+        if(qtdHectar > 30){
+            div_msg.innerHTML += 'Contrate os nossos serviços em mais de 30 Hectares de plantação e ganhe <b><i>20% de desconto!!<i/></b> ';
+        }
+    }
+</script>
+</html>
