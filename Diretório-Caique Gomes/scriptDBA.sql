@@ -77,3 +77,12 @@ INSERT INTO producao(dataProducao, haPlantados, quilosColhidos)  VALUES
 
 SELECT * FROM producao;
 
+-- SELECT TABELA producao RETORNA A ESTAÇÃO QUE FOI PLANTADA
+SELECT dataProducao, haPlantados, quilosColhidos,
+CASE
+	WHEN MONTH(dataProducao)IN(12,01,02)  THEN 'VERÃO'
+    WHEN MONTH(dataProducao)IN(03,04,05) THEN 'OUTONO'
+    WHEN MONTH(dataProducao)IN(06,07,08) THEN 'INVERNO'
+    WHEN MONTH(dataProducao)IN(09,10,11) THEN 'PRIMAVERA'
+END AS 'Estação Plantada'
+FROM producao;
