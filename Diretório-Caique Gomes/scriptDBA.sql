@@ -34,28 +34,28 @@ quilosColhidos int
 );
 
 -- INSERÇÃO DADOS TABELA plantacao
-INSERT INTO plantacao(dataLeitura,sensorUmidade,sensorTemperatura) VALUES
-(current_timestamp(),50,25),
-(current_timestamp(),56,25),
-(current_timestamp(),54,25),
-(current_timestamp(),61,26),
-(current_timestamp(),50,25),
-(current_timestamp(),56,25),
-(current_timestamp(),54,25),
-(current_timestamp(),61,26),
-(current_timestamp(),50,25),
-(current_timestamp(),56,25),
-(current_timestamp(),54,25),
-(current_timestamp(),61,26),
-(current_timestamp(),50,25),
-(current_timestamp(),56,25),
-(current_timestamp(),54,25),
-(current_timestamp(),61,26),
-(current_timestamp(),50,25),
-(current_timestamp(),56,25),
-(current_timestamp(),54,25),
-(current_timestamp(),61,26),
-(current_timestamp(),59,25);
+INSERT INTO plantacao(sensorUmidade,sensorTemperatura) VALUES
+(50,25),
+(56,25),
+(54,25),
+(61,26),
+(50,25),
+(56,25),
+(54,25),
+(61,26),
+(50,25),
+(56,25),
+(54,25),
+(61,26),
+(50,25),
+(56,25),
+(54,25),
+(61,26),
+(50,25),
+(56,25),
+(54,25),
+(61,26),
+(59,25);
 
 SELECT * FROM plantacao;
 
@@ -86,3 +86,16 @@ CASE
     WHEN MONTH(dataProducao)IN(09,10,11) THEN 'PRIMAVERA'
 END AS 'Estação Plantada'
 FROM producao;
+
+-- SELECT TABELA plantacao RETORNA AS LEITURAS MAIS RECENTES
+SELECT * FROM plantacao
+	ORDER BY dataLeitura DESC;
+    
+-- SELECT TABELA plantacao RETORNA CLASSIFICAÇÃO TEMPERATURA
+SELECT *, 
+CASE
+	WHEN sensorTemperatura>25 THEN 'ACIMA DO IDEAL'
+    WHEN sensorTemperatura>18 AND sensorTemperatura<=25 THEN 'IDEAL'
+    WHEN sensorTemperatura<=18 THEN 'ABAIXO DO IDEAL'
+END AS 'Classificação Temperatura'
+FROM plantacao;
