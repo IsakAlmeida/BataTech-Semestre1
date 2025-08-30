@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+</head>
+<body>
+    <h2><b style="color: rgb(177, 99, 68);">Simulador financeiro</b></h2>
+    <h3>Faça sua simulação e saiba como nossos serviços podem transformar sua produção!</h3>
+    <p>Nosso simulador financeiro mostra quanto você pode lucrar em seu cultivo de batatas.<br>
+    Com o uso da nossa tecnologia, sua produtividade pode aumentar em até <b style="color:green;">20%</b>, 
+    gerando mais receita e mais lucro.</p>
+
+    <b>Preencha os campos seguintes com valores aproximados.</b>
+    <br><br>
+    Área plantada (hectares): <input id="ipt_areaplantada"><br>
+    Custo por hectare (insumos, irrigação, mão de obra, etc): <input id="ipt_custohectare"><br>
+    Produção estimada por hectare (sacas): <input id="ipt_prodsacas"><br>
+    Preço de venda por saca (R$): <input id="ipt_precoVenda"> 
+    <br><br>
+    <button onclick="calcular()">Calcular Lucro</button>
+    <br>
+    <div id="div_msg"></div>
+</body>
+<script>
+    function calcular(){
+        //Pegar valores obtidos nos inputs
+        var area_plantada = Number(ipt_areaplantada.value);
+        var custoHectare = Number(ipt_custohectare.value);
+        var prodEstimada = Number(ipt_prodsacas.value);
+        var precoVenda = Number(ipt_precoVenda.value);
+        //Cálculos financeiros sem uso da nossa tecnologia
+        var custoTotal = area_plantada * custoHectare;
+        var producaoTotal = area_plantada * prodEstimada;
+        var receitaTotal = producaoTotal * precoVenda;
+        var lucroLiquido = receitaTotal - custoTotal;
+
+        //Cálculos financeiros com uso da nossa tecnologia
+        var prodTec = prodEstimada + (prodEstimada * 0.2);
+        var prodTotalTec = prodTec * area_plantada;
+        var receitaTotalTec = prodTotalTec * precoVenda; 
+        var lucroTec = receitaTotalTec - custoTotal;
+
+        //Cálculo de diferença percentual de ganho;
+        var DifLucro = lucroTec - lucroLiquido;
+        var percAumento = ((lucroTec - lucroLiquido) / lucroLiquido ) * 100
+
+        //Mensagem a ser mostrada na DIV.
+        div_msg.innerHTML = `<br><b>Sem os nossos serviços: </b>
+        <br>Sua produtividade total é de <b style="color: red;">${producaoTotal}</b> sacas. 
+        <br>Receita total: <b style="color: red;"> R$ ${receitaTotal.toFixed(2)} </b> 
+        <br>Lucros obtido: <b style="color: red;">R$ ${lucroLiquido.toFixed(2)} </b> 
+
+        <br><br><b>Com os nossos serviços: </b>
+        <br>Sua produtividade total foi de <b style="color: green;">${prodTotalTec} </b> sacas. 
+        <br>Receita total: <b style="color: green;">R$ ${receitaTotalTec.toFixed(2)} </b> 
+        <br>Lucros obtido: <b style="color: green;">R$ ${lucroTec.toFixed(2)} </b> 
+
+        <br><br> <b style="color: green;">Ganho R$ ${DifLucro.toFixed(2)} (Acréscimo de ${percAumento.toFixed(2)} %).</b>`
+    }
+
+
+</script>
+</html>
