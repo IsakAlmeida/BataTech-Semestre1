@@ -6,13 +6,13 @@
     <title>Simulador Financeiro</title>
 </head>
 <body>
-    <h2><b style="color: rgb(177, 99, 68);">Simulador financeiro</b></h2>
-    <h3>Faça sua simulação e saiba como nossos serviços podem transformar sua produção!</h3>
+    <h2><b style="color: rgb(235, 126, 3);">Simulador financeiro</b></h2>
+    <h3>Faça sua simulação e saiba como nossos serviços podem elevar a produtividade!</h3>
     <p>Nosso simulador financeiro mostra quanto você pode lucrar em seu cultivo de batatas.<br>
     Com o uso da nossa tecnologia, sua produtividade pode aumentar em até <b style="color:green;">20%</b>, 
     gerando mais receita e mais lucro.</p>
 
-    <b>Preencha os campos seguintes com valores aproximados.</b>
+    <b>Preencha os campos seguintes com valores aproximados: </b>
     <br><br>
     Área plantada (hectares): <input id="ipt_areaplantada"><br>
     Custo por hectare (insumos, irrigação, mão de obra, etc): <input id="ipt_custohectare"><br>
@@ -47,12 +47,12 @@
         var percAumento = ((lucroTec - lucroLiquido) / lucroLiquido ) * 100
 
         //Mensagem a ser mostrada na DIV.
-        div_msg.innerHTML = `<br><b>Sem os nossos serviços: </b>
+        div_msg.innerHTML = `<br><b>Sem os nossos serviços, esses foram os seus resultados:  </b>
         <br>Sua produtividade total é de <b style="color: red;">${producaoTotal}</b> sacas. 
         <br>Receita total: <b style="color: red;"> R$ ${receitaTotal.toFixed(2)} </b> 
         <br>Lucros obtido: <b style="color: red;">R$ ${lucroLiquido.toFixed(2)} </b> 
 
-        <br><br><b>Com os nossos serviços: </b>
+        <br><br><b>Com os nossos serviços, esses foram os seus resultados: </b>
         <br>Sua produtividade total foi de <b style="color: green;">${prodTotalTec} </b> sacas. 
         <br>Receita total: <b style="color: green;">R$ ${receitaTotalTec.toFixed(2)} </b> 
         <br>Lucros obtido: <b style="color: green;">R$ ${lucroTec.toFixed(2)} </b> 
