@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador Finançeiro</title>
+</head>
+<body>
+  <h1>Simule sua possivel Lucratividade com a BataThec</h1>
+  Com as nossas soluções IoT e o profissionalismo que só a BataThec pode oferecer, queremos ajudar
+  sua empresa a <b>AUMENTAR</b> a produção em até 25%, também ajudando no consumo de água, podendo <b>DIMINUIR</b>
+  em até 30%. Faça a simulação logo a baixo: <br><br>
+
+  Insira quantas <b>Toneladas</b> são produzidas por <b>Hectar</b> em sua plantação: <input id="ipt_hectare"><br><br>
+  Insira o valor da sua conta de Água <b>(Em Litros)</b> na média: <input id="ipt_agua"><br><br>
+  <button onclick="lucro()">Simular</button><br>
+  <div id="div_msg"></div>
+</body>
+
+<script>
+  function lucro() {
+    var hectare = Number(ipt_hectare.value) * 0.25;
+    var resultado = Number(ipt_hectare.value) + hectare;
+    var agua = Number(ipt_agua.value) * 0.3;
+    var conta = Number(ipt_agua.value) - agua;
+    
+    div_msg.innerHTML = 'Sua produtividade poderá chegar a: ' + resultado + ' Toneladas. <br>'
+    + 'Sua conta de água poderá chegar a: R$' + conta + '.';
+  }
+</script>
+</html>
