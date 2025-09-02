@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoTBatata</title>
+</head>
+<body style="background-color: bisque;">
+    <h2 style="color: rgb(203, 126, 59);">USO IOT EM PLANTAÇÕES DE BATATA</h2>
+    <div>
+        Insira uma produção de batata por kg/ano<input id="ipt_producao"><br>
+        <button onclick="Calcular()">Calcular Melhoria</button>
+    </div> <br><br>
+    <div id="Respostacliente"></div>
+</body>
+<script>
+    function Calcular() {
+        val_producao = Number(ipt_producao.value);
+        val_comrizo = val_producao * 0.7;
+        val_deperda = val_producao * 0.3;
+        
+        Respostacliente.innerHTML = `Produção com rizoctoniose ${val_comrizo.toFixed(2)}kg/ano (perda de até 30% da plantação) ou seja, ${val_deperda.toFixed(2)}kg/ano de perda de produção.
+        <br> Produção sem rizoctoniose inicial ${ipt_producao.value}kg/ano `
+
+    }
+</script>
+</html>
