@@ -1,0 +1,14 @@
+ls (para listar os diretórios-base)
+cd Documentos (ir para o diretório Documentos)
+Mkdir Dahsboards (criar o diretório Dashboards)
+cd Dashboards (ir para o diretório citado)
+Cat  >  arquivopi.txt
+“Aqui teremos as tabelas do grupo”
+Ctrl + C
+(criar arquivo com o nome,
+escrever um texto curto,
+para confirmar a criação do arquivo)
+ls (listar o arquivo criado)
+cd .. (retornar ao diretório Documentos)
+Rm -r Dashboards (apagar o diretório Dashboards)
+ls (mostrar que foi apagado)
