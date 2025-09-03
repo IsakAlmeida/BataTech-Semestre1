@@ -1,3 +1,4 @@
+sudo useradd <nome do usuário>
 ls (para listar os diretórios-base)
 cd Documentos (ir para o diretório Documentos)
 Mkdir Dahsboards (criar o diretório Dashboards)
