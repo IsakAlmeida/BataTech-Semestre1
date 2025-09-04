@@ -19,8 +19,8 @@
         <h3><b>Preencha os campos seguintes:</b></h3>
     </div>
     <div> <!-- input-->
-        insira a área plantada (ha)* <br><input id="ipthe"> <br><br>
-        insira sua produção por hectare (kg)* <br><input id="iptproducao"><br><br>
+        Insira a área plantada (ha)* <br><input id="ipthe"> <br><br>
+        Insira sua produção por hectare (kg)* <br><input id="iptproducao"><br><br>
         Custo de água por hectare* <br><input id="iptagua"><br><br>
     </div>
     <br>
@@ -63,11 +63,11 @@
         divmsg.innerHTML =
             `<br><b>Sem os nossos serviços, esses foram os seus resultados:  </b>
         <br>Sua produtividade total é de <b style="color: red;">${producaoatual}</b> kg. 
-        <br>Receita atual bruto: <b style="color: red;"> R$ ${vendaatual.toFixed(2)} </b>  
+        <br>Receita atual bruta: <b style="color: red;"> R$ ${vendaatual.toFixed(2)} </b>  
 
         <br><br><b>Com os nossos serviços, esses foram os seus resultados: </b>
         <br>Sua produtividade pode ir de <b style="color: green;">${minimoprod}kg/ha (mínimo) até ${maximoprod}kg (máximo).</b> 
-        <br>Receita total bruto: <b style="color: green;">R$ ${minimovenda.toFixed(2)} até R$ ${maximovenda.toFixed(2)} </b> 
+        <br>Receita total bruta: <b style="color: green;">R$ ${minimovenda.toFixed(2)} até R$ ${maximovenda.toFixed(2)} </b> 
         <br>podendo economizar até <b style="color: green;">R$ ${economiaagua.toFixed(2)} em uso de água. </b> 
         `
     }
