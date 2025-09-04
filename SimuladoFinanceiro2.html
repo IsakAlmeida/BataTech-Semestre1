@@ -38,7 +38,7 @@
         var producao = Number(iptproducao.value);
         var custoagua = Number(iptagua.value);
 
-        //Cal água
+        //Calculo água
         
         var economiaagua = custoagua * areaplantada * 0.3
         
@@ -62,7 +62,7 @@
 
         divmsg.innerHTML =
             `<br><b>Sem os nossos serviços, esses foram os seus resultados:  </b>
-        <br>Sua produtividade total é de <b style="color: red;">${producaoatual}</b> sacas. 
+        <br>Sua produtividade total é de <b style="color: red;">${producaoatual}</b> kg/ha. 
         <br>Receita atual bruto: <b style="color: red;"> R$ ${vendaatual.toFixed(2)} </b>  
 
         <br><br><b>Com os nossos serviços, esses foram os seus resultados: </b>
