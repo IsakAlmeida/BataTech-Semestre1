@@ -24,6 +24,15 @@ dataLeitura DATETIME DEFAULT current_timestamp
 
 DESC logSensor;
 
+
+-- CRIAÇÃO DA TABELA producao
+CREATE TABLE producao(
+id INT PRIMARY KEY AUTO_INCREMENT,
+dataColheita DATE,
+haPlantados INT, 
+quilosColhidos int 
+);
+
 -- CRIANDO TABELA contrato
 CREATE TABLE contrato(
 idContrato INT PRIMARY KEY AUTO_INCREMENT,
@@ -56,10 +65,18 @@ INSERT INTO logSensor (sensorTemperatura,sensorUmidade) VALUES
 
 SELECT * FROM logSensor;
 
+-- INSERÇÃO DADOS NA TABELA producao
+INSERT INTO producao(dataColheita, haPlantados, quilosColhidos)  VALUES
+('2025-06-01', 5000 ,125000000 ),
+('2025-08-10', 2000, 44000000),
+('2024-01-01', 6000,156000000);
+
+SELECT * FROM producao;
+
 -- INSERINDO DADOS TABELA contrato
 INSERT INTO contrato (nomeEmpresa, cnpj, tipoAssinatura, qtdArduinos, qtdHectares,fidelidade) VALUES
-('Joyce & Pure LTDA','72.235.123/0001-12','Anual', 150, 10,'2026-09-02'),
-('Jose Batateiro LTDA','12.345.432/0001-21','Semestral', 50, 7, '2026-03-02');
+('Joyce & Pure LTDA','72.235.123/0001-12','Anual', 50000, 5000,'2026-09-02'),
+('Jose Batateiro LTDA','12.345.432/0001-21','Semestral', 20000, 2000, '2026-03-02');
 
 SELECT * FROM contrato;
 
@@ -85,4 +102,12 @@ SELECT * FROM usuario
 SELECT * FROM contrato
 	ORDER BY qtdArduinos DESC;
 
-
+-- SELECT TABELA producao RETORNA A ESTAÇÃO QUE FOI PLANTADA
+SELECT dataColheita, haPlantados, quilosColhidos,
+CASE
+	WHEN MONTH(dataColheita)IN(12,01,02)  THEN 'VERÃO'
+    WHEN MONTH(dataColheita)IN(03,04,05) THEN 'OUTONO'
+    WHEN MONTH(dataColheita)IN(06,07,08) THEN 'INVERNO'
+    WHEN MONTH(dataColheita)IN(09,10,11) THEN 'PRIMAVERA'
+END AS 'Estação Colhida'
+FROM producao;
