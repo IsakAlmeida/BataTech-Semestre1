@@ -7,17 +7,19 @@
 </head>
 <body>
     <h2>Simulador Financeiro</h2>
-    Produtividade atual em sacas por hectare (sacas/ha) <input id="ipt_prodat""><br>
-    Custo atual por sacas em R$ <input id="ipt_custat""><br>
+    <i> A proposição ao produtor é estimar o aumento da produtividade em 20% 
+        e uma redução dos custos atuais por sacas em 15% </i><br><br>
+    Produtividade atual em sacas por hectare (sacas/ha) <input id="ipt_produat""><br><br>
+    Custo atual por sacas (em R$) <input id="ipt_custoatual""><br><br>
     <button onclick="melhoria()">Calcular Melhoria</button><br><br>
     <div id="BT_msg"></div>
 </body>
 <script>
     function melhoria () {
-        var val_prodat = Number(ipt_prodat.value);
-        var val_custat = Number(ipt_custat.value);
-        var val_prodBT = (val_prodat * 0.20) + val_prodat;
-        var val_custBT = val_custat - val_custat * 0.15;
+        var val_produat = Number(ipt_produat.value);
+        var val_custoatual = Number(ipt_custoatual.value);
+        var val_prodBT = (val_produat * 0.20) + val_produat;
+        var val_custBT = val_custoatual - val_custoatual * 0.15;
         BT_msg.innerHTML = 'A produtividade em sacas pós-BataTech passou a ser de ' + val_prodBT +
         ' sacas por hectare, enquanto que o custo das sacas pós-BataTech agora é de R$' + val_custBT
     }
