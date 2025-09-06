@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+</head>
+<body>
+    <h2 style="color:darkgreen">
+        Simule agora o seu upgrade junto à 
+        <b style="color:brown">BATATECH</b>!
+    </h2>    
+    
+    <p>Preencha as informações abaixo e veja o quanto a Batatech beneficiaria o seu negócio!</p>
+    
+    <br>
+    Quantos hectares tem a sua plantação? 
+    <input id="ipt_hec">
+    <br><br>
+
+    Quantas sacas de batata você produz? 
+    <input id="ipt_sacas">
+    <br><br>
+
+    Qual o seu lucro anual (em R$)? 
+    <input id="ipt_lucro">
+    <br><br>
+
+    <button onclick="calcular()">Clique aqui e simule a sua mudança agora</button>
+    
+    <div id="div_msg"></div>
+
+</body>
+<script>
+    function calcular(){
+        var hec = Number(ipt_hec.value);
+        var sacas = Number(ipt_sacas.value);
+        var lucro = Number(ipt_lucro.value);
+
+        var lucroComBatatech = lucro * 1.20; // aumento de 20%
+
+        if (hec <= 0 || sacas <= 0 || lucro <= 0) {
+            div_msg.innerHTML = "⚠️ Por favor, preencha todos os campos corretamente!";
+        } else {
+            div_msg.innerHTML = 
+                "👉 Sem a Batatech, o seu lucro anual seria de <b>R$ " + lucro.toFixed(2) + "</b>." +
+                "<br><br>" +
+                "🚀 Com a Batatech, o seu lucro poderia chegar a <b style='color:green'>R$ " + lucroComBatatech.toFixed(2) + "</b>, pois nosso projeto aumenta em até 20% o lucro total!";
+        }
+    }
+</script>
+</html>
