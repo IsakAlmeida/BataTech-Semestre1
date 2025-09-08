@@ -13,14 +13,14 @@ int leituraSensor = analogRead(PINO_SENSOR_UMIDADE_SOLO); //Coleta os dados do S
 float porcentagemUmidade = 100 - (leituraSensor / 1023.0) *100; //Faz a conversão de secura para umidade
 
  Serial.print("UmiMax:");
- Serial.print(60);                   //Define a umidade máxima no gráfico
+ Serial.print(80);                   //Define a umidade máxima no gráfico
  Serial.print(" ");
- Serial.print("Umidade do solo: ");  // Imprime no monitor serial a umidade do solo e a linha de umidade atual no gráfico
+ Serial.print("Umidade do solo:");  // Imprime no monitor serial a umidade do solo e a linha de umidade atual no gráfico
  Serial.print(porcentagemUmidade);
  Serial.print(" %");
  Serial.print(" ");
  Serial.print("UmiMin:");           //Define a umidade mínima no gráfico
- Serial.println(40);
+ Serial.println(60);
 
    delay(2000);   // tempo de pausa a cada execução do código
 }

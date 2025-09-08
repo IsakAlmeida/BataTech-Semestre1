@@ -68,8 +68,8 @@ CASE
 ELSE 'Solo adequado!' 
 END AS 'Situação da Temperatura',
 CASE 
-	WHEN sensorUmidade > 70.00 THEN 'Solo muito umido!'
-    WHEN sensorUmidade < 40.00 THEN 'Solo muito seco!'
+	WHEN sensorUmidade > 80.00 THEN 'Solo muito umido!'
+    WHEN sensorUmidade < 60.00 THEN 'Solo muito seco!'
 ELSE 'Solo adequado!'
 END AS 'Situação da Umidade'
 FROM logSensor;
