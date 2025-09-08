@@ -33,20 +33,6 @@ haPlantados INT,
 quilosColhidos int 
 );
 
--- CRIANDO TABELA contrato
-CREATE TABLE contrato(
-idContrato INT PRIMARY KEY AUTO_INCREMENT,
-nomeEmpresa VARCHAR(80) NOT NULL,
-cnpj VARCHAR(18)NOT NULL UNIQUE,
-tipoAssinatura VARCHAR(20),
-CONSTRAINT chkPlano CHECK(tipoAssinatura IN ('Semestral','Anual')),
-qtdArduinos INT,
-qtdHectares DECIMAL(5,1),
-fidelidade DATE
-);
-
-DESC contrato;
-
 
 -- INSERINDO DADOS TABELA usuario
 INSERT INTO usuario (cnpj, email, senha, nome) VALUES
@@ -73,12 +59,6 @@ INSERT INTO producao(dataColheita, haPlantados, quilosColhidos)  VALUES
 
 SELECT * FROM producao;
 
--- INSERINDO DADOS TABELA contrato
-INSERT INTO contrato (nomeEmpresa, cnpj, tipoAssinatura, qtdArduinos, qtdHectares,fidelidade) VALUES
-('Joyce & Pure LTDA','72.235.123/0001-12','Anual', 50000, 5000,'2026-09-02'),
-('Jose Batateiro LTDA','12.345.432/0001-21','Semestral', 20000, 2000, '2026-03-02');
-
-SELECT * FROM contrato;
 
 -- FILTRANDO AS CONDIÇÕES DO SOLO DE ACORDO COM OS SENSORES
 SELECT idLog, sensorTemperatura, sensorUmidade AS 'Umidade em %', dataLeitura, 
@@ -98,9 +78,6 @@ FROM logSensor;
 SELECT * FROM usuario
 	ORDER BY cnpj;
     
--- ORDENANDO CONTRATOS QUE UTILIZAM MAIS ARDUINO
-SELECT * FROM contrato
-	ORDER BY qtdArduinos DESC;
 
 -- SELECT TABELA producao RETORNA A ESTAÇÃO QUE FOI PLANTADA
 SELECT dataColheita, haPlantados, quilosColhidos,
